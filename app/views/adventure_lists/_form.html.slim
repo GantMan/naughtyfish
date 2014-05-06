@@ -1,0 +1,10 @@
+= simple_form_for(@adventure_list) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :user
+    = f.association :action
+    = f.input :adventure
+
+  .form-actions
+    = f.button :submit

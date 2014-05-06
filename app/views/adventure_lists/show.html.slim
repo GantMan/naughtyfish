@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @adventure_list.user
+p
+  strong Action:
+  = @adventure_list.action
+p
+  strong Adventure:
+  = @adventure_list.adventure
+
+= link_to 'Edit', edit_adventure_list_path(@adventure_list)
+'|
+= link_to 'Back', adventure_lists_path

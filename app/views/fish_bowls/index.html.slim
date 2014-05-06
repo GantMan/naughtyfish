@@ -1,0 +1,19 @@
+h1 Listing fish_bowls
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @fish_bowls.each do |fish_bowl|
+      tr
+        td = link_to 'Show', fish_bowl
+        td = link_to 'Edit', edit_fish_bowl_path(fish_bowl)
+        td = link_to 'Destroy', fish_bowl, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Fish bowl', new_fish_bowl_path

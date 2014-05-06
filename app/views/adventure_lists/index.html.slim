@@ -1,0 +1,25 @@
+h1 Listing adventure_lists
+
+table
+  thead
+    tr
+      th User
+      th Action
+      th Adventure
+      th
+      th
+      th
+
+  tbody
+    - @adventure_lists.each do |adventure_list|
+      tr
+        td = adventure_list.user
+        td = adventure_list.action
+        td = adventure_list.adventure
+        td = link_to 'Show', adventure_list
+        td = link_to 'Edit', edit_adventure_list_path(adventure_list)
+        td = link_to 'Destroy', adventure_list, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Adventure list', new_adventure_list_path
