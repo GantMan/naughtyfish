@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506001121) do
+ActiveRecord::Schema.define(version: 20140506003251) do
+
+  create_table "actions", force: true do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "actions", ["category_id"], name: "index_actions_on_category_id"
+
+  create_table "adventure_lists", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "action_id"
+    t.string   "adventure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adventure_lists", ["action_id"], name: "index_adventure_lists_on_action_id"
+  add_index "adventure_lists", ["user_id"], name: "index_adventure_lists_on_user_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fish_bowls", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fishbowls_users", id: false, force: true do |t|
+    t.integer "fishbowl_id", null: false
+    t.integer "user_id",     null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
